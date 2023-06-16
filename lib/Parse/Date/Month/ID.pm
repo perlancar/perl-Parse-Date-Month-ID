@@ -1,66 +1,85 @@
 package Parse::Date::Month::ID;
 
-# DATE
-# VERSION
-
 use 5.010001;
 use strict;
 use warnings;
 
-require Exporter;
-our @ISA       = qw(Exporter);
+use Exporter qw(import);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(parse_date_month_id $Pat);
 
 our %month_values = (
+    jn => 1,
     jan => 1,
     januari => 1,
     january => 1,
 
+    fe => 2,
+    pe => 2,
     feb => 2,
     peb => 2,
     februari => 2,
     pebruari => 2,
     february => 2,
 
+    mr => 3,
     mar => 3,
     mrt => 3,
     maret => 3,
     march => 3,
 
+    ap => 4,
     apr => 4,
     april => 4,
 
+    my => 5,
+    me => 5,
     mei => 5,
     may => 5,
 
+    jn => 6,
     jun => 6,
     juni => 6,
     june => 6,
 
+    jl => 7,
     jul => 7,
     juli => 7,
     july => 7,
 
+    au => 8,
+    ag => 8,
     agu => 8,
     aug => 8,
     agt => 8,
     agustus => 8,
     august => 8,
 
+    se => 9,
     sep => 9,
     sept => 9,
     september => 9,
 
+    oc => 10,
+    ok => 10,
     okt => 10,
     oct => 10,
     oktober => 10,
     october => 10,
 
+    nv => 11,
+    np => 11,
     nov => 11,
     nop => 11,
     november => 11,
     nopember => 11,
 
+    de => 12,
     des => 12,
     dec => 12,
     desember => 12,
@@ -94,7 +113,7 @@ sub parse_date_month_id {
     my $text = $args{text};
 
     $text =~ s/^\s+//s;
-    return undef unless length($text);
+    return undef unless length($text); ## no critic: Subroutines::ProhibitExplicitReturnUndef
 
     $month_values{lc $text};
 }
