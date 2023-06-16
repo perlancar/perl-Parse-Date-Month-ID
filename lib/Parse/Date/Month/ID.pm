@@ -147,6 +147,8 @@ A regex.
 
 =head1 SEE ALSO
 
+Other C<Parse::Month:Name::*> modules.
+
 A more full-fledged Indonesian date parsing module:
 L<DateTime::Format::Alami::ID>, with more dependencies.
 
